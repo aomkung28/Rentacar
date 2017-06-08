@@ -1,36 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta charset="utf-8" />
-    <title>Pages - Admin Dashboard UI Kit - Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <link rel="apple-touch-icon" href="pages/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/mapplic/css/mapplic.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="assets/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="pages/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="pages/css/pages.css" rel="stylesheet" type="text/css" />
-    <!--[if lte IE 9]>
-	<link href="assets/plugins/codrops-dialogFx/dialog.ie.css" rel="stylesheet" type="text/css" media="screen" />
-	<![endif]-->
+  {% include 'base/head.html' %}
   </head>
   <body class="fixed-header dashboard">
     <!-- BEGIN SIDEBPANEL-->
@@ -39,21 +10,21 @@
       <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{{ url_for('static', filename='assets/img/demo/social_app.svg') }}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{{ url_for('static', filename='assets/img/demo/email_app.svg') }}" alt="socail">
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{{ url_for('static', filename='assets/img/demo/calendar_app.svg') }}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{{ url_for('static', filename='assets/img/demo/add_more.svg') }}" alt="socail">
             </a>
           </div>
         </div>
@@ -61,7 +32,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+        <img src="{{ url_for('static', filename='assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ url_for('static', filename='assets/img/logo_white.png') }}" data-src-retina="{{ url_for('static', filename='assets/img/logo_white_2x.png') }}" width="78" height="22">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -76,13 +47,13 @@
         <ul class="menu-items">
           <li class="m-t-30 ">
             <a href="index.html" class="detailed">
-              <span class="title">Dashboard</span>
+              <span class="title">Dashboard All</span>
             </a>
             <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li class="">
             <a href="car.html" class="detailed">
-              <span class="title">Car</span>
+              <span class="title">Car I</span>
 
             </a>
             <span class="icon-thumbnail">C</span>
@@ -101,15 +72,15 @@
             <a href="report.html"><span class="title">Reports</span></a>
             <span class="icon-thumbnail"><i class="pg-form"></i></span>
           </li>
-          
+
           <li class="">
             <a href="profile.html">
               <span class="title">Profile</span>
             </a>
             <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
           </li>
-         
-        
+
+
           </li>
         </ul>
         <div class="clearfix"></div>
@@ -137,7 +108,7 @@
           <div class="pull-center hidden-md hidden-lg">
             <div class="header-inner">
               <div class="brand inline">
-                <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+                <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png') }}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png') }}" width="78" height="22">
               </div>
             </div>
           </div>
@@ -156,7 +127,7 @@
         <div class=" pull-left sm-table hidden-xs hidden-sm">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+              <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png') }}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png') }}" width="78" height="22">
             </div>
             <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -189,7 +160,7 @@
                             </div>
                             <div class="more-details">
                               <div class="more-details-inner">
-                                <h5 class="semi-bold fs-16">“Apple’s Motivation - Innovation <br> 
+                                <h5 class="semi-bold fs-16">“Apple’s Motivation - Innovation <br>
                                                             distinguishes between <br>
                                                             A leader and a follower.”</h5>
                                 <p class="small hint-text">
@@ -245,7 +216,7 @@
                         <div class="notification-item unread clearfix">
                           <div class="heading">
                             <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
-                              <img width="30" height="30" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" alt="" src="assets/img/profiles/1.jpg">
+                              <img width="30" height="30" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" alt="" src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}">
                             </div>
                             <a href="#" class="text-complete pull-left">
                               <span class="bold">Revox Design Labs</span>
@@ -300,7 +271,7 @@
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+                <img src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg') }}" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -1614,7 +1585,7 @@
                   <div class="padding-15">
                     <div class="item-header clearfix">
                       <div class="thumbnail-wrapper d32 circular">
-                        <img width="40" height="40" src="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" data-src-retina="assets/img/profiles/3x.jpg" alt="">
+                        <img width="40" height="40" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" alt="">
                       </div>
                       <div class="inline m-l-10">
                         <p class="no-margin">
@@ -1661,7 +1632,7 @@
                       <div class="padding-15">
                         <div class="item-header clearfix">
                           <div class="thumbnail-wrapper d32 circular">
-                            <img width="40" height="40" src="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" data-src-retina="assets/img/profiles/3x.jpg" alt="">
+                            <img width="40" height="40" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" alt="">
                           </div>
                           <div class="inline m-l-10">
                             <p class="no-margin">
@@ -1690,7 +1661,7 @@
                           </li>
                         </ul>
                         <div class="widget-19-post no-overflow">
-                          <img src="assets/img/social-post-image.png" class="block center-margin relative" alt="Post">
+                          <img src="{{ url_for('static', filename='assets/img/social-post-image.png') }}" class="block center-margin relative" alt="Post">
                         </div>
                       </div>
                       <div class="padding-15">
@@ -2294,7 +2265,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2314,7 +2285,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/2.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2329,7 +2300,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2349,7 +2320,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/4.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2364,7 +2335,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/5.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2384,7 +2355,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/6.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2399,7 +2370,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/7.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2419,7 +2390,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/8.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2434,7 +2405,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/9.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2449,7 +2420,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2464,7 +2435,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/2.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2479,7 +2450,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2499,7 +2470,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/4.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2519,7 +2490,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/5.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2534,7 +2505,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/6.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2554,7 +2525,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/7.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2574,7 +2545,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/8.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2594,7 +2565,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/9.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2609,7 +2580,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2624,7 +2595,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/2.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2639,7 +2610,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2659,7 +2630,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/4.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2674,7 +2645,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/5.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2689,7 +2660,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/6.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2704,7 +2675,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/7.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2719,7 +2690,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/8.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2734,7 +2705,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/9.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2755,7 +2726,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2775,7 +2746,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/2.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2795,7 +2766,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2810,7 +2781,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/4.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2825,7 +2796,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" src="assets/img/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/5.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/5x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2845,7 +2816,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" src="assets/img/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/6.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/6x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2860,7 +2831,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" src="assets/img/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/7.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/7x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2875,7 +2846,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/8x.jpg" data-src="assets/img/profiles/8.jpg" src="assets/img/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/8.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/8x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2895,7 +2866,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/9x.jpg" data-src="assets/img/profiles/9.jpg" src="assets/img/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/9.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/9x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2910,7 +2881,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" src="assets/img/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/1x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2925,7 +2896,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" src="assets/img/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/2.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/2x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2940,7 +2911,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" src="assets/img/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/3.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/3x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -2960,7 +2931,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" src="assets/img/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/4.jpg') }}" src="{{ url_for('static', filename='assets/img/profiles/4x.jpg') }}" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -3004,7 +2975,7 @@
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg">
+                    <img class="col-top" width="30" height="30" src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg') }}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg') }}">
                   </div>
                   <div class="chat-bubble from-them">
                     Hey
@@ -3028,7 +2999,7 @@
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg">
+                    <img class="col-top" width="30" height="30" src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg') }}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg') }}">
                   </div>
                   <div class="chat-bubble from-them">
                     Yea
@@ -3066,7 +3037,7 @@
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
           <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+          <img class="overlay-brand" src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png') }}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png') }}" width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -3106,7 +3077,7 @@
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
                     <div>
-                      <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+                      <img width="50" height="50" src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar2x.jpg') }}" alt="">
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->
@@ -3195,45 +3166,6 @@
       </div>
       <!-- END Overlay Content !-->
     </div>
-    <!-- END OVERLAY -->
-    <!-- BEGIN VENDOR JS -->
-    <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-bez/jquery.bez.min.js"></script>
-    <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-    <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-select2/select2.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/classie/classie.js"></script>
-    <script src="assets/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/lib/d3.v3.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/nv.d3.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/utils.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/tooltip.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/interactiveLayer.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/models/axis.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/models/line.js" type="text/javascript"></script>
-    <script src="assets/plugins/nvd3/src/models/lineWithFocusChart.js" type="text/javascript"></script>
-    <script src="assets/plugins/mapplic/js/hammer.js"></script>
-    <script src="assets/plugins/mapplic/js/jquery.mousewheel.js"></script>
-    <script src="assets/plugins/mapplic/js/mapplic.js"></script>
-    <script src="assets/plugins/rickshaw/rickshaw.min.js"></script>
-    <script src="assets/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/skycons/skycons.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!-- END VENDOR JS -->
-    <!-- BEGIN CORE TEMPLATE JS -->
-    <script src="pages/js/pages.min.js"></script>
-    <!-- END CORE TEMPLATE JS -->
-    <!-- BEGIN PAGE LEVEL JS -->
-    <script src="assets/js/dashboard.js" type="text/javascript"></script>
-    <script src="assets/js/scripts.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL JS -->
+    {% include 'base/js.html' %}
   </body>
 </html>
