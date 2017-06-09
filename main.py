@@ -23,5 +23,9 @@ def profile():
 def report():
     return render_template('report.html')
 
+@app.route("/invoice")
+def invoice():
+    return render_template('invoice.html')
+    
 if __name__ == "__main__":
     app.run(debug=True)
