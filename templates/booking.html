@@ -35,7 +35,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+        <img src="{{ url_for('static', filename='assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ url_for('static', filename='assets/img/logo_white.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_white_2x.png')}}" width="78" height="22">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -109,7 +109,8 @@
           <div class="pull-center hidden-md hidden-lg">
             <div class="header-inner">
               <div class="brand inline">
-                <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+              <img src="{{ url_for('static', filename='assets/img/logo.png') }}"  width="78" height="22">
+
               </div>
             </div>
           </div>
@@ -128,7 +129,7 @@
         <div class=" pull-left sm-table hidden-xs hidden-sm">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+              <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo2222" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
             </div>
             <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -272,7 +273,7 @@
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+               <img src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg') }}" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -299,13 +300,29 @@
       <div class="page-content-wrapper ">
         <!-- START PAGE CONTENT -->
         <div class="content ">
-
+        <!-- START JUMBOTRON -->
+          <div class="jumbotron" data-pages="parallax">
+            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+              <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <p>Pages</p>
+                  </li>
+                  <li><a href="#" class="active">Blank template</a>
+                  </li>
+                </ul>
+                <!-- END BREADCRUMB -->
+              </div>
+            </div>
+          </div>
+          <!-- END JUMBOTRON -->
             <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg bg-white">
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add">Add</button>
+                <div class="panel-title">
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
@@ -314,7 +331,7 @@
                 </div>
                 <div class="clearfix"></div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="overflow-x:auto;">
 
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
@@ -489,127 +506,7 @@
           <!-- END CONTAINER FLUID -->
         </div>
         <!-- END PAGE CONTENT -->
-        <!-- Modal -->
-  <div class="modal fade" id="add" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        </div>
-        <div class="modal-body">
-               <!-- START PANEL -->
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <div class="panel-title">
-                      Add
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <h5>
-
-            </h5>
-                    <form class="" role="form">
-                    <div class="form-group form-group-default required ">
-                        <label>License</label>
-                        <input type="name" class="form-control" required>
-                      </div>
-                      <div class="form-group form-group-default required ">
-                        <label>Name</label>
-                        <input type="name" class="form-control" required>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                       <div class="form-group form-group-default form-group-default-select2 required">
-                        <label class="">Model</label>
-                        <select class="full-width" data-placeholder="Select Model" data-init-plugin="select2">
-                          <optgroup label="Model">
-                            <option value="Nissan">Nissan</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                      </div>
-                      <div class="col-sm-6">
-                       <div class="form-group form-group-default form-group-default-select2 required">
-                        <label class="">Type</label>
-                        <select class="full-width" data-placeholder="Select Type" data-init-plugin="select2">
-                          <optgroup label="Type">
-                            <option value="Sadan">Sadan</option>
-                            <option value="Minivan">Minivan</option>
-                            <option value="SUV">SUV</option>
-                            <option value="Hatchback">Hatchback</option>
-                            <option value="Cabriolet">Cabriolet/Coupe</option>
-                            <option value="Supercar">Sport/Supercar</option>
-                            <option value="Pickup">Pickup</option>
-                            <option value="4WD">4WD</option>
-                            <option value="MiniTruck">Mini Truck</option>
-                            <option value="Micro">Micro/Electric</option>
-                            <option value="Van">Van</option>
-                            <option value="Campervan">Campervan</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                      </div>
-                      </div>
-
-                     <div class="form-group form-group-default required ">
-                        <label>Door</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                     <div class="form-group form-group-default required ">
-                        <label>Engine</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                       <div class="row">
-                        <div class="col-sm-6">
-                    <div class="form-group form-group-default required ">
-                        <label>Fuel</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                      </div>
-                        <div class="col-sm-6">
-                       <div class="form-group form-group-default required ">
-                        <label>Fuel Type</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                      </div>
-                      </div>
-                      <div class="form-group form-group-default form-group-default-select2">
-                        <label>Places</label>
-                        <select class=" full-width" data-init-plugin="select2" multiple>
-                          <option value="United States">United States</option>
-                          <option value="India">India</option>
-                          <option value="Africa">Africa</option>
-                        </select>
-                      </div>
-                       <div class="form-group form-group-default required ">
-                        <label>Rental Price</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                    <div class="radio radio-success">
-                      <input type="radio" value="yes" name="optionyes" id="yes">
-                      <label for="yes">Active</label>
-                      <input type="radio" checked="checked" value="no" name="optionyes" id="no">
-                      <label for="no">Disabled</label>
-                    </div>
-
-                    </form>
-                  </div>
-                </div>
-                <!-- END PANEL -->
-        </div>
-        <div class="modal-footer">
-        <button class="btn btn-success" type="submit">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+       
         </div>
         <!-- END PAGE CONTENT -->
         <!-- START COPYRIGHT -->
@@ -1761,7 +1658,7 @@
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
           <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+          <img class="overlay-brand" src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo99999" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -1801,7 +1698,7 @@
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
                     <div>
-                      <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+                       <img width="50" height="50" src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar2x.jpg') }}" alt="">
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->
