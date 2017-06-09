@@ -218,7 +218,7 @@
                         <div class="notification-item unread clearfix">
                           <div class="heading">
                             <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
-                              <img width="30" height="30" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" alt="" src="assets/img/profiles/1.jpg">
+                              <img width="30" height="30" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg')}}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg')}}" alt="" src="{{ url_for('static', filename='assets/img/profiles/1.jpg')}}">
                             </div>
                             <a href="#" class="text-complete pull-left">
                               <span class="bold">Revox Design Labs</span>
@@ -318,480 +318,147 @@
           </div>
           <!-- END JUMBOTRON -->
           <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg bg-white">
+          <div class="container-fluid container-fixed-lg">
             <!-- START PANEL -->
-            <div class="panel panel-transparent">
-              <div class="panel-heading">
-                <div class="panel-title"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add">Add</button>
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="invoice padding-50 sm-padding-10">
+                  <div>
+                    <div class="pull-left">
+                      <img width="235" height="47" alt="" class="invoice-logo" data-src-retina="{{ url_for('static', filename='assets/img/invoice/squarespace2x.png')}}" data-src="{{ url_for('static', filename='assets/img/invoice/squarespace.png')}}" src="{{ url_for('static', filename='assets/img/invoice/squarespace2x.png')}}">
+                      <address class="m-t-10">
+                                      Apple Enterprise Sales
+                                      <br>(877) 412-7753.
+                                      <br>
+                                  </address>
+                    </div>
+                    <div class="pull-right sm-m-t-20">
+                      <h2 class="font-montserrat all-caps hint-text">Invoice</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="container-sm-height">
+                    <div class="row-sm-height">
+                      <div class="col-md-9 col-sm-height sm-no-padding">
+                        <p class="small no-margin">Invoice to</p>
+                        <h5 class="semi-bold m-t-0">Darren Forthway</h5>
+                        <address>
+                                              <strong>Pages Incoperated.</strong>
+                                              <br>page.inc
+                                              <br>
+                                              1600 Amphitheatre Pkwy, Mountain View,<br>
+                                              CA 94043, United States
+                                          </address>
+                      </div>
+                      <div class="col-md-3 col-sm-height col-bottom sm-no-padding sm-p-b-20">
+                        <br>
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Invoice No :</div>
+                          <div class="pull-right">0047</div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Invoice date :</div>
+                          <div class="pull-right">29/09/14</div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table m-t-50">
+                      <thead>
+                        <tr>
+                          <th class="">Task Description</th>
+                          <th class="text-center">Rate</th>
+                          <th class="text-center">Hours</th>
+                          <th class="text-right">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">Character Illustration</p>
+                            <p class="small hint-text">
+                              Character Design projects from the latest top online portfolios on Behance.
+                            </p>
+                          </td>
+                          <td class="text-center">$65.00</td>
+                          <td class="text-center">84</td>
+                          <td class="text-right">$5,376.00</td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">Cross Heart Charity Branding</p>
+                            <p class="small hint-text">
+                              Attempt to attach higher credibility to a new product by associating it with a well established company name
+                            </p>
+                          </td>
+                          <td class="text-center">$89.00</td>
+                          <td class="text-center">100</td>
+                          <td class="text-right">$8,900.00</td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">iOs App</p>
+                            <p class="small hint-text">
+                              A video game franchise Inspired primarily by a sketch of stylized wingless - Including Branding / Graphics / Motion Picture &amp; Videos
+                            </p>
+                          </td>
+                          <td class="text-center">$100.00</td>
+                          <td class="text-center">500</td>
+                          <td class="text-right">$50,000.00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <div>
+                    <img width="150" height="58" alt="" class="invoice-signature" data-src-retina="{{ url_for('static', filename='assets/img/invoice/signature2x.png')}}" data-src="{{ url_for('static', filename='assets/img/invoice/signature.png')}}" src="{{ url_for('static', filename='assets/img/invoice/signature2x.png')}}">
+                    <p>Designer’s Identity</p>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="container-sm-height">
+                    <div class="row row-sm-height b-a b-grey">
+                      <div class="col-sm-2 col-sm-height col-middle p-l-25 sm-p-t-15 sm-p-l-15 clearfix sm-p-b-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text bold">Advance</h5>
+                        <h3 class="no-margin">$21,000.00</h3>
+                      </div>
+                      <div class="col-sm-5 col-sm-height col-middle clearfix sm-p-b-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text bold">Discount (10%)</h5>
+                        <h3 class="no-margin">$645.00</h3>
+                      </div>
+                      <div class="col-sm-5 text-right bg-menu col-sm-height padding-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text text-white bold">Total</h5>
+                        <h1 class="no-margin text-white">$64,276.00</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="small hint-text">Services will be invoiced in accordance with the Service Description. You must pay all undisputed invoices in full within 30 days of the invoice date, unless otherwise specified under the Special Terms and Conditions. All payments must reference the invoice number. Unless otherwise specified, all invoices shall be paid in the currency of the invoice</p>
+                  <p class="small hint-text">Insight retains the right to decline to extend credit and to require that the applicable purchase price be paid prior to performance of Services based on changes in insight's credit policies or your financial condition and/or payment record. Insight reserves the right to charge interest of 1.5% per month or the maximum allowable by applicable law, whichever is less, for any undisputed past due invoices. You are responsible for all costs of collection, including reasonable attorneys' fees, for any payment default on undisputed invoices. In addition, Insight may terminate all further work if payment is not received in a timely manner.</p>
+                  <br>
+                  <hr>
+                  <div>
+                    <img src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
+                    <span class="m-l-70 text-black sm-pull-right">+34 346 4546 445</span>
+                    <span class="m-l-40 text-black sm-pull-right">support@revox.io</span>
                   </div>
                 </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="panel-body" style="overflow-x:auto;">
-
-                <table class="table table-hover demo-table-search " id="tableWithSearch">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>license</th>
-                      <th>Image</th>
-                      <th>Name</th>
-                      <th>Model</th>
-                      <th>Type</th>
-                      <th>Door</th>
-                      <th>Engine</th>
-                      <th>Fuel</th>
-                      <th>Fuel type</th>
-                      <th>Places</th>
-                      <th>Rental Price</th>
-                      <th>Status</th>
-                      <th>Last Update</th>
-                      <th>Edit</th>
-                      <th>Del</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0001</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>กท1354</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car.jpeg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Nissan March</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Nissan</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Sadan</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>4</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>1200 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>95</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>5000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0002</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>ยก2685</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car1.jpg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota Vios</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Sadan</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>4</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>1200 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>95</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>8000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0003</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>ยล1274</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car2.jpg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Mitsubishi Mirage</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Mitsubishi</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Sadan</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>4</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>1200 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>95</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>5000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0004</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>กท5994</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car3.jpg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota Fortuner 2WD</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>SUV</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>5</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>2000 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>91</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>9000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0005</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>กด2364</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car4.jpg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota Hilux Vigo Smart Cab</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Pickup</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>2</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>2000 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>95</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>9000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">
-                        <p>0006</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>ลว9588</p>
-                      </td>
-                      <td class="v-align-middle">
-                         <img src="{{ url_for('static', filename='assets/img/car5.jpg') }}" width="150" height="100">
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota Yaris</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Toyota</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>Sadan</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>4</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>1200 CC</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p> </p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>95</p>
-                      </td>
-
-                      <td class="v-align-middle"><a href="#" class="btn btn-tag">United States</a><a href="#" class="btn btn-tag">India</a>
-                        <a href="#" class="btn btn-tag">China</a><a href="#" class="btn btn-tag">Africa</a>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <p>5000</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>Active</p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>April 13,2014 10:13</p>
-                      </td>
-                      <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Edit</button>
-                      </td>
-                       <td class="v-align-middle semi-bold">
-                        <button type="button" class="btn btn-primary btn-md">Del</button>
-                      </td>
-                    </tr>
-
-                  </tbody>
-                </table>
               </div>
             </div>
             <!-- END PANEL -->
           </div>
+          </div>
           <!-- END CONTAINER FLUID -->
-        </div>
-        <!-- END PAGE CONTENT -->
-        <!-- Modal -->
-  <div class="modal fade" id="add" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        </div>
-        <div class="modal-body">
-               <!-- START PANEL -->
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <div class="panel-title">
-                      Add
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                    <h5>
-
-            </h5>
-                    <form class="" role="form">
-                    <div class="form-group form-group-default required ">
-                        <label>License</label>
-                        <input type="name" class="form-control" required>
-                      </div>
-                      <div class="form-group form-group-default required ">
-                        <label>Name</label>
-                        <input type="name" class="form-control" required>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                       <div class="form-group form-group-default form-group-default-select2 required">
-                        <label class="">Model</label>
-                        <select class="full-width" data-placeholder="Select Model" data-init-plugin="select2">
-                          <optgroup label="Model">
-                            <option value="Nissan">Nissan</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                      </div>
-                      <div class="col-sm-6">
-                       <div class="form-group form-group-default form-group-default-select2 required">
-                        <label class="">Type</label>
-                        <select class="full-width" data-placeholder="Select Type" data-init-plugin="select2">
-                          <optgroup label="Type">
-                            <option value="Sadan">Sadan</option>
-                            <option value="Minivan">Minivan</option>
-                            <option value="SUV">SUV</option>
-                            <option value="Hatchback">Hatchback</option>
-                            <option value="Cabriolet">Cabriolet/Coupe</option>
-                            <option value="Supercar">Sport/Supercar</option>
-                            <option value="Pickup">Pickup</option>
-                            <option value="4WD">4WD</option>
-                            <option value="MiniTruck">Mini Truck</option>
-                            <option value="Micro">Micro/Electric</option>
-                            <option value="Van">Van</option>
-                            <option value="Campervan">Campervan</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                      </div>
-                      </div>
-
-                     <div class="form-group form-group-default required ">
-                        <label>Door</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                     <div class="form-group form-group-default required ">
-                        <label>Engine</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                       <div class="row">
-                        <div class="col-sm-6">
-                    <div class="form-group form-group-default required ">
-                        <label>Fuel</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                      </div>
-                        <div class="col-sm-6">
-                       <div class="form-group form-group-default required ">
-                        <label>Fuel Type</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                      </div>
-                      </div>
-                      <div class="form-group form-group-default form-group-default-select2">
-                        <label>Places</label>
-                        <select class=" full-width" data-init-plugin="select2" multiple>
-                          <option value="United States">United States</option>
-                          <option value="India">India</option>
-                          <option value="Africa">Africa</option>
-                        </select>
-                      </div>
-                       <div class="form-group form-group-default required ">
-                        <label>Rental Price</label>
-                        <input type="number" class="form-control" required>
-                      </div>
-                    <div class="radio radio-success">
-                      <input type="radio" value="yes" name="optionyes" id="yes">
-                      <label for="yes">Active</label>
-                      <input type="radio" checked="checked" value="no" name="optionyes" id="no">
-                      <label for="no">Disabled</label>
-                    </div>
-
-                    </form>
-                  </div>
-                </div>
-                <!-- END PANEL -->
-        </div>
-        <div class="modal-footer">
-        <button class="btn btn-success" type="submit">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+       
         <!-- START COPYRIGHT -->
         <!-- START CONTAINER FLUID -->
         <!-- START CONTAINER FLUID -->
