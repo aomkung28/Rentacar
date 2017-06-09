@@ -1,5 +1,30 @@
-/*
 
-* Override Pages default styles or create your own styles here
-
-*/
+@media screen and (max-width:479px){  /* 0px - 479px */
+ .flip-scroll{
+ display:block;
+ width: 100%; 
+ }
+ .flip-scroll thead{
+ display: block; 
+ float: left;
+ }
+ .flip-scroll thead th, 
+ .flip-scroll tbody td{
+ line-height:20px;
+ text-align:center;
+ }
+ .flip-scroll thead th{
+ display:block;  /* กำหนดให้ th เรียงต่อๆ กันในแนวตั้ง */
+ }
+ .flip-scroll tbody{
+ display: block; 
+ overflow-x: auto;  /* กำหนดให้ tbody สามารถ scroll ได้ในแนวนอน*/ 
+ white-space: nowrap; 
+ }
+ .flip-scroll tbody tr{
+ display:inline-block;  /* กำหนดให้ tr เรียงต่อๆ กันในแนวนอน */
+ }
+ .flip-scroll tbody td{
+ display:block;  /* กำหนดให้ td เรียงต่อๆ กันในแนวตั้ง */
+ }
+}

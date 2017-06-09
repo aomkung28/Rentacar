@@ -3,29 +3,8 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>Pages - Admin Dashboard UI Kit - Blank Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <link rel="apple-touch-icon" href="pages/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="pages/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="pages/css/pages.css" rel="stylesheet" type="text/css" />
-    <!--[if lte IE 9]>
-	<link href="assets/plugins/codrops-dialogFx/dialog.ie.css" rel="stylesheet" type="text/css" media="screen" />
-	<![endif]-->
+    <title>Pages - Admin Dashboard UI Kit - Form Layouts</title>
+  {% include 'base/head.html' %}
   </head>
   <body class="fixed-header ">
     <!-- BEGIN SIDEBPANEL-->
@@ -34,21 +13,21 @@
       <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{{ url_for('static', filename='assets/img/demo/social_app.svg') }}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{{ url_for('static', filename='assets/img/demo/email_app.svg') }}" alt="socail">
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{{ url_for('static', filename='assets/img/demo/calendar_app.svg') }}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{{ url_for('static', filename='assets/img/demo/add_more.svg') }}" alt="socail">
             </a>
           </div>
         </div>
@@ -56,7 +35,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+        <img src="{{ url_for('static', filename='assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ url_for('static', filename='assets/img/logo_white.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_white_2x.png')}}" width="78" height="22">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -65,46 +44,44 @@
         </div>
       </div>
       <!-- END SIDEBAR MENU HEADER-->
-       <!-- START SIDEBAR MENU -->
+         <!-- START SIDEBAR MENU -->
       <div class="sidebar-menu">
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
           <li class="m-t-30 ">
-            <a href="index.html" class="detailed">
+            <a href="/" class="detailed">
               <span class="title">Dashboard</span>
             </a>
             <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li class="">
-            <a href="car.html" class="detailed">
+            <a href="/car" class="detailed">
               <span class="title">Car</span>
 
             </a>
             <span class="icon-thumbnail">C</span>
           </li>
           <li class="">
-            <a href="booking.html" class="detailed">
+            <a href="/booking" class="detailed">
               <span class="title">Booking</span>
             </a>
             <span class="icon-thumbnail"><i class="pg-mail"></i></span>
           </li>
+
+
           <li class="">
-            <a href="transaction.html"><span class="title">Transaction</span></a>
-            <span class="icon-thumbnail"><i class="pg-social"></i></span>
-          </li>
-          <li class="">
-            <a href="report.html"><span class="title">Reports</span></a>
+            <a href="/report"><span class="title">Reports</span></a>
             <span class="icon-thumbnail"><i class="pg-form"></i></span>
           </li>
-          
+
           <li class="">
-            <a href="profile.html">
+            <a href="/profile">
               <span class="title">Profile</span>
             </a>
             <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
           </li>
-         
-        
+
+
           </li>
         </ul>
         <div class="clearfix"></div>
@@ -132,7 +109,8 @@
           <div class="pull-center hidden-md hidden-lg">
             <div class="header-inner">
               <div class="brand inline">
-                <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+                <img src="{{ url_for('static', filename='assets/img/logo.png') }}"  width="78" height="22">
+
               </div>
             </div>
           </div>
@@ -151,7 +129,7 @@
         <div class=" pull-left sm-table hidden-xs hidden-sm">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+              <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="logo2222" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
             </div>
             <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -184,7 +162,7 @@
                             </div>
                             <div class="more-details">
                               <div class="more-details-inner">
-                                <h5 class="semi-bold fs-16">“Apple’s Motivation - Innovation <br> 
+                                <h5 class="semi-bold fs-16">“Apple’s Motivation - Innovation <br>
                                                             distinguishes between <br>
                                                             A leader and a follower.”</h5>
                                 <p class="small hint-text">
@@ -240,7 +218,7 @@
                         <div class="notification-item unread clearfix">
                           <div class="heading">
                             <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
-                              <img width="30" height="30" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" alt="" src="assets/img/profiles/1.jpg">
+                              <img width="30" height="30" data-src-retina="{{ url_for('static', filename='assets/img/profiles/1x.jpg')}}" data-src="{{ url_for('static', filename='assets/img/profiles/1.jpg')}}" alt="" src="{{ url_for('static', filename='assets/img/profiles/1.jpg')}}">
                             </div>
                             <a href="#" class="text-complete pull-left">
                               <span class="bold">Revox Design Labs</span>
@@ -295,7 +273,7 @@
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+                <img src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg')}}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg')}}" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -341,12 +319,146 @@
           <!-- END JUMBOTRON -->
           <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg">
-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
-            <!-- END PLACE PAGE CONTENT HERE -->
+            <!-- START PANEL -->
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="invoice padding-50 sm-padding-10">
+                  <div>
+                    <div class="pull-left">
+                      <img width="235" height="47" alt="" class="invoice-logo" data-src-retina="{{ url_for('static', filename='assets/img/invoice/squarespace2x.png')}}" data-src="{{ url_for('static', filename='assets/img/invoice/squarespace.png')}}" src="{{ url_for('static', filename='assets/img/invoice/squarespace2x.png')}}">
+                      <address class="m-t-10">
+                                      Apple Enterprise Sales
+                                      <br>(877) 412-7753.
+                                      <br>
+                                  </address>
+                    </div>
+                    <div class="pull-right sm-m-t-20">
+                      <h2 class="font-montserrat all-caps hint-text">Invoice</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="container-sm-height">
+                    <div class="row-sm-height">
+                      <div class="col-md-9 col-sm-height sm-no-padding">
+                        <p class="small no-margin">Invoice to</p>
+                        <h5 class="semi-bold m-t-0">Darren Forthway</h5>
+                        <address>
+                                              <strong>Pages Incoperated.</strong>
+                                              <br>page.inc
+                                              <br>
+                                              1600 Amphitheatre Pkwy, Mountain View,<br>
+                                              CA 94043, United States
+                                          </address>
+                      </div>
+                      <div class="col-md-3 col-sm-height col-bottom sm-no-padding sm-p-b-20">
+                        <br>
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Invoice No :</div>
+                          <div class="pull-right">0047</div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Invoice date :</div>
+                          <div class="pull-right">29/09/14</div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table m-t-50">
+                      <thead>
+                        <tr>
+                          <th class="">Task Description</th>
+                          <th class="text-center">Rate</th>
+                          <th class="text-center">Hours</th>
+                          <th class="text-right">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">Character Illustration</p>
+                            <p class="small hint-text">
+                              Character Design projects from the latest top online portfolios on Behance.
+                            </p>
+                          </td>
+                          <td class="text-center">$65.00</td>
+                          <td class="text-center">84</td>
+                          <td class="text-right">$5,376.00</td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">Cross Heart Charity Branding</p>
+                            <p class="small hint-text">
+                              Attempt to attach higher credibility to a new product by associating it with a well established company name
+                            </p>
+                          </td>
+                          <td class="text-center">$89.00</td>
+                          <td class="text-center">100</td>
+                          <td class="text-right">$8,900.00</td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="text-black">iOs App</p>
+                            <p class="small hint-text">
+                              A video game franchise Inspired primarily by a sketch of stylized wingless - Including Branding / Graphics / Motion Picture &amp; Videos
+                            </p>
+                          </td>
+                          <td class="text-center">$100.00</td>
+                          <td class="text-center">500</td>
+                          <td class="text-right">$50,000.00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <div>
+                    <img width="150" height="58" alt="" class="invoice-signature" data-src-retina="{{ url_for('static', filename='assets/img/invoice/signature2x.png')}}" data-src="{{ url_for('static', filename='assets/img/invoice/signature.png')}}" src="{{ url_for('static', filename='assets/img/invoice/signature2x.png')}}">
+                    <p>Designer’s Identity</p>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="container-sm-height">
+                    <div class="row row-sm-height b-a b-grey">
+                      <div class="col-sm-2 col-sm-height col-middle p-l-25 sm-p-t-15 sm-p-l-15 clearfix sm-p-b-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text bold">Advance</h5>
+                        <h3 class="no-margin">$21,000.00</h3>
+                      </div>
+                      <div class="col-sm-5 col-sm-height col-middle clearfix sm-p-b-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text bold">Discount (10%)</h5>
+                        <h3 class="no-margin">$645.00</h3>
+                      </div>
+                      <div class="col-sm-5 text-right bg-menu col-sm-height padding-15">
+                        <h5 class="font-montserrat all-caps small no-margin hint-text text-white bold">Total</h5>
+                        <h1 class="no-margin text-white">$64,276.00</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="small hint-text">Services will be invoiced in accordance with the Service Description. You must pay all undisputed invoices in full within 30 days of the invoice date, unless otherwise specified under the Special Terms and Conditions. All payments must reference the invoice number. Unless otherwise specified, all invoices shall be paid in the currency of the invoice</p>
+                  <p class="small hint-text">Insight retains the right to decline to extend credit and to require that the applicable purchase price be paid prior to performance of Services based on changes in insight's credit policies or your financial condition and/or payment record. Insight reserves the right to charge interest of 1.5% per month or the maximum allowable by applicable law, whichever is less, for any undisputed past due invoices. You are responsible for all costs of collection, including reasonable attorneys' fees, for any payment default on undisputed invoices. In addition, Insight may terminate all further work if payment is not received in a timely manner.</p>
+                  <br>
+                  <hr>
+                  <div>
+                    <img src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
+                    <span class="m-l-70 text-black sm-pull-right">+34 346 4546 445</span>
+                    <span class="m-l-40 text-black sm-pull-right">support@revox.io</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END PANEL -->
+          </div>
           </div>
           <!-- END CONTAINER FLUID -->
-        </div>
-        <!-- END PAGE CONTENT -->
+       
         <!-- START COPYRIGHT -->
         <!-- START CONTAINER FLUID -->
         <!-- START CONTAINER FLUID -->
@@ -1458,7 +1570,7 @@
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg">
+                    <img class="col-top" width="30" height="30" src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg')}}" alt="" data-src="{{ url_for('static', filename='assets/img/profiles/avatar_small.jpg')}}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar_small2x.jpg')}}">
                   </div>
                   <div class="chat-bubble from-them">
                     Yea
@@ -1496,7 +1608,7 @@
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
           <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+          <img class="overlay-brand" src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo99999" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -1626,27 +1738,7 @@
       <!-- END Overlay Content !-->
     </div>
     <!-- END OVERLAY -->
-    <!-- BEGIN VENDOR JS -->
-    <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-bez/jquery.bez.min.js"></script>
-    <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-    <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-select2/select2.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/classie/classie.js"></script>
-    <script src="assets/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
-    <!-- END VENDOR JS -->
-    <!-- BEGIN CORE TEMPLATE JS -->
-    <script src="pages/js/pages.min.js"></script>
-    <!-- END CORE TEMPLATE JS -->
-    <!-- BEGIN PAGE LEVEL JS -->
-    <script src="assets/js/scripts.js" type="text/javascript"></script>
+      {% include 'base/js.html' %}
     <!-- END PAGE LEVEL JS -->
   </body>
 </html>
