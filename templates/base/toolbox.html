@@ -39,37 +39,36 @@
       <div class="sidebar-menu">
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
-          <li class="m-t-30 ">
+          <li class="{%if request.path == '/'%}open active{%endif%} m-t-30 ">
             <a href="/" class="detailed">
               <span class="title">Dashboard</span>
             </a>
-            <span class="icon-thumbnail"><i class="pg-home"></i></span>
+            <span class="{%if request.path == '/'%}bg-success{%endif%} icon-thumbnail"><i class="pg-home"></i></span>
           </li>
-          <li class="">
+          <li class="{%if request.path == '/car'%}open active{%endif%}">
             <a href="/car" class="detailed">
               <span class="title">Car</span>
-
             </a>
-            <span class="icon-thumbnail">C</span>
+            <span class="{%if request.path == '/car'%}bg-success{%endif%} icon-thumbnail">C</span>
           </li>
-          <li class="">
+          <li class="{%if request.path == '/booking'%}open active{%endif%}">
             <a href="/booking" class="detailed">
               <span class="title">Booking</span>
             </a>
-            <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span>
+            <span class="{%if request.path == '/booking'%}bg-success{%endif%} icon-thumbnail"><i class="pg-mail"></i></span>
           </li>
 
 
-          <li class="">
+          <li class="{%if request.path == '/report'%}open active{%endif%}">
             <a href="/report"><span class="title">Reports</span></a>
-            <span class="icon-thumbnail"><i class="pg-form"></i></span>
+            <span class="{%if request.path == '/report'%}bg-success{%endif%} icon-thumbnail"><i class="pg-form"></i></span>
           </li>
 
-          <li class="">
+          <li class="{%if request.path == '/profile'%}open active{%endif%}">
             <a href="/profile">
               <span class="title">Profile</span>
             </a>
-            <span class="icon-thumbnail"><i class="pg-layouts"></i></span>
+            <span class="{%if request.path == '/profile'%}bg-success{%endif%} icon-thumbnail"><i class="pg-layouts"></i></span>
           </li>
 
 

@@ -18,6 +18,7 @@ def car():
 
 @app.route("/profile")
 def profile():
+    print request.path
     return render_template('profile.html')
 
 @app.route("/report")
@@ -26,6 +27,7 @@ def report():
 
 @app.route("/invoice")
 def invoice():
+    print Request.path
     return render_template('invoice.html')
     
 
