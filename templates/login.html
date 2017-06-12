@@ -7,12 +7,12 @@
    {% include 'base/head.html' %}
   </head>
   <body class="fixed-header ">
-  
+
     <div class="login-wrapper ">
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="{{ url_for('static', filename='assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src="{{ url_for('static', filename='assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src-retina="{{ url_for('static', filename='assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" alt="" class="lazy">
+        <img src="{{ static_url('assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src="{{ static_url('assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src-retina="{{ static_url('assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
@@ -28,12 +28,13 @@
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-          <img src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="150">
+          <img src="{{ static_url('assets/img/logo.png')}}" alt="logo" data-src="{{ static_url('assets/img/logo.png')}}" data-src-retina="{{ static_url('assets/img/logo_2x.png')}}" width="150">
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          <form id="form-login" class="p-t-15" role="form" action="index.html">
+          <form id="form-login" class="p-t-15 {% if error=='1' %}required has-error {%end%}" role="form" action="/login" method="post">
+
             <!-- START Form Control-->
-            <div class="form-group form-group-default">
+            <div class="form-group form-group-default {% if error=='1' %}required has-error {%end%}">
               <label>Login</label>
               <div class="controls">
                 <input type="text" name="username" placeholder="User Name" class="form-control" required>
@@ -41,12 +42,16 @@
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
-            <div class="form-group form-group-default">
+            <div class="form-group form-group-default {%if error == '1' %}required has-error {%end%}">
               <label>Password</label>
               <div class="controls">
                 <input type="password" class="form-control" name="password" placeholder="Credentials" required>
               </div>
             </div>
+            {%if error == '1' %}
+            <div><label class="alert alert-danger">Your logins are incorrect!</label></div>
+             {%end%}
+
             <!-- START Form Control-->
             <div class="row">
               <div class="col-md-6 no-padding">
@@ -61,12 +66,13 @@
             </div>
             <!-- END Form Control-->
             <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
+            {% module xsrf_form_html() %}
           </form>
           <!--END Login Form-->
           <div class="pull-bottom sm-pull-bottom">
             <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
               <div class="col-sm-3 col-md-2 no-padding">
-                <img alt="" class="m-t-5" data-src="{{ url_for('static', filename='assets/img/demo/pages_icon.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/demo/pages_icon_2x.png')}}" height="60" src="{{ url_for('static', filename='assets/img/demo/pages_icon.png')}}" width="60">
+                <img alt="" class="m-t-5" data-src="{{ static_url('assets/img/demo/pages_icon.png')}}" data-src-retina="{{ static_url('assets/img/demo/pages_icon_2x.png')}}" height="60" src="{{ static_url('assets/img/demo/pages_icon.png')}}" width="60">
               </div>
               <div class="col-sm-9 no-padding m-t-10">
                 <p>
@@ -83,7 +89,7 @@
       </div>
       <!-- END Login Right Container-->
     </div>
-  
+
    {% include 'base/js.html' %}
     <script>
     $(function()
