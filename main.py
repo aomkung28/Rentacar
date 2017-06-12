@@ -30,6 +30,16 @@ def invoice():
     print Request.path
     return render_template('invoice.html')
     
+@app.route("/register")
+def register():
+	print Request.path
+	return render_template('register.html')
+    
+@app.route("/login")
+def login():
+		print Request.path
+		return render_template('login.html')
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

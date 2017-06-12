@@ -3,199 +3,92 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>Pages - Admin Dashboard UI Kit - Blank Page</title>
-{% include 'base/head.html' %}
+    <title>Pages - Admin Dashboard UI Kit - Lock Screen</title>
+    {% include 'base/head.html' %}
   </head>
   <body class="fixed-header ">
-    {% include 'base/toolbox.html' %}
-    <!-- START PAGE-CONTAINER -->
-    <div class="page-container ">
-      <!-- START HEADER -->
-     {% include 'base/header.html' %}
-      <!-- END HEADER -->
-      <!-- START PAGE CONTENT WRAPPER -->
-      <div class="page-content-wrapper ">
-        <!-- START PAGE CONTENT -->
-        <div class="content ">
-          <!-- START JUMBOTRON -->
-          <div class="jumbotron" data-pages="parallax">
-            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
-              <div class="inner">
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                  <li>
-                    <p>Pages</p>
-                  </li>
-                  <li><a href="#" class="active">Blank template</a>
-                  </li>
-                </ul>
-                <!-- END BREADCRUMB -->
+    <div class="register-container full-height sm-p-t-30">
+      <div class="container-sm-height full-height">
+        <div class="row row-sm-height">
+          <div class="col-sm-12 col-sm-height col-middle">
+            <img src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="150">
+            <h3>Pages makes it easy to enjoy what matters the most in your life</h3>
+            <p>
+              <small>
+        Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a>
+    </small>
+            </p>
+            <form id="form-register" class="p-t-15" role="form" action="index.html">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>First Name</label>
+                    <input type="text" name="fname" placeholder="John" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>Last Names</label>
+                    <input type="text" name="lname" placeholder="Smith" class="form-control" required>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <!-- END JUMBOTRON -->
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg">
-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
-            <div class="row">
-<div class="col-md-10 ">
-<form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
-<legend>User profile form requirement</legend>
-
-<!-- Text input-->
-
-
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Username">Username</label>
-  <div class="col-md-4">
- <div class="input-group">
-       <div class="input-group-addon">
-        <i class="fa fa-user">
-        </i>
-       </div>
-       <input id="Username" name="Username" type="text" placeholder="Username" class="form-control input-md">
-      </div>
-
-
-  </div>
-
-
-</div>
-
-<!-- File Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
-  <div class="col-md-4">
-    <input id="Upload photo" name="Upload photo" class="input-file" type="file">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Date Of Birth">Date Of Birth</label>
-  <div class="col-md-4">
-
-  <div class="input-group">
-       <div class="input-group-addon">
-     <i class="fa fa-birthday-cake"></i>
-
-       </div>
-       <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth" class="form-control input-md">
-      </div>
-
-
-  </div>
-</div>
-
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
-  <div class="col-md-4">
-  <div class="input-group">
-       <div class="input-group-addon">
-     <i class="fa fa-phone"></i>
-
-       </div>
-    <input id="Phone number " name="Phone number " type="text" placeholder="Phone number " class="form-control input-md">
-
-      </div>
-
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Email Address">Email Address</label>
-  <div class="col-md-4">
-  <div class="input-group">
-       <div class="input-group-addon">
-     <i class="fa fa-envelope-o"></i>
-
-       </div>
-    <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
-
-      </div>
-
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Overview (max 200 words)">Overview (max 200 words)</label>
-  <div class="col-md-4">
-    <textarea class="form-control" rows="10"  id="Overview (max 200 words)" name="Overview (max 200 words)"></textarea>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" ></label>
-  <div class="col-md-4">
-  <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
-  <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
-
-  </div>
-</div>
-
-</fieldset>
-</form>
-</div>
-<div class="col-md-2 hidden-xs">
-<img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
-  </div>
-
-
-</div>
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-            <!-- END PLACE PAGE CONTENT HERE -->
-          </div>
-          <!-- END CONTAINER FLUID -->
-        </div>
-        <!-- END PAGE CONTENT -->
-        <!-- START COPYRIGHT -->
-        <!-- START CONTAINER FLUID -->
-        <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg footer">
-          <div class="copyright sm-text-center">
-            <p class="small no-margin pull-left sm-pull-reset">
-              <span class="hint-text">Copyright &copy; 2014 </span>
-              <span class="font-montserrat">REVOX</span>.
-              <span class="hint-text">All rights reserved. </span>
-              <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-            </p>
-            <p class="small no-margin pull-right sm-pull-reset">
-              <a href="#">Hand-crafted</a> <span class="hint-text">&amp; Made with Love ®</span>
-            </p>
-            <div class="clearfix"></div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Pages User name</label>
+                    <input type="text" name="uname" placeholder="yourname.pages.com (this can be changed later)" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Password</label>
+                    <input type="password" name="pass" placeholder="Minimum of 4 Charactors" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-10">
+                <div class="col-md-6">
+                  <p>I agree to the <a href="#" class="text-info small">Pages Terms</a> and <a href="#" class="text-info small">Privacy</a>.</p>
+                </div>
+                <div class="col-md-6 text-right">
+                  <a href="#" class="text-info small">Help? Contact Support</a>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-cons m-t-10" type="submit">Create a new account</button>
+            </form>
           </div>
         </div>
-        <!-- END COPYRIGHT -->
       </div>
-      <!-- END PAGE CONTENT WRAPPER -->
     </div>
-    <!-- END PAGE CONTAINER -->
-    
+    <div class=" full-width">
+      <div class="register-container m-b-10 clearfix">
+        <div class="inline pull-left">
+          <img src="{{ url_for('static', filename='assets/img/demo/pages_icon.png')}}" alt="" class="m-t-5 " data-src="{{ url_for('static', filename='assets/img/demo/pages_icon.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/demo/pages_icon_2x.png')}}" width="60" height="60">
+        </div>
+        <div class="col-md-10 m-t-15">
+          <p class="hinted-text small inline ">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>
+        </div>
+      </div>
+    </div>
     <!-- START OVERLAY -->
     <div class="overlay hide" data-pages="search">
       <!-- BEGIN Overlay Content !-->
       <div class="overlay-content has-results m-t-20">
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
-         <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo99999" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}" width="78" height="22">
+          <!-- BEGIN Overlay Logo !-->
+          <img class="overlay-brand" src="{{ url_for('static', filename='assets/img/logo.png')}}" alt="logo" data-src="{{ url_for('static', filename='assets/img/logo.png')}}" data-src-retina="{{ url_for('static', filename='assets/img/logo_2x.png')}}' width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -235,8 +128,7 @@
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
                     <div>
-                      <img width="50" height="50" src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg') }}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar2x.jpg') }}" alt="">
-                    </div>
+                      <img width="50" height="50" src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg')}}" data-src="{{ url_for('static', filename='assets/img/profiles/avatar.jpg')}}" data-src-retina="{{ url_for('static', filename='assets/img/profiles/avatar2x.jpg')}}" alt="">
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->
@@ -326,6 +218,12 @@
       <!-- END Overlay Content !-->
     </div>
     <!-- END OVERLAY -->
-  {% include 'base/js.html' %}
+    {% include 'base/js.html' %}
+    <script>
+    $(function()
+    {
+      $('#form-register').validate()
+    })
+    </script>
   </body>
 </html>
