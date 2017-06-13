@@ -5,9 +5,9 @@ from pymysql import OperationalError
 class authentification:
     def __init__(self):
         self.connection = pymysql.connect(host='localhost',
-                                     user='master',
-                                     password='root',
-                                     db='db_master',
+                                     user='root',
+                                     password='123456789',
+                                     db='rentacars',
                                      cursorclass=pymysql.cursors.DictCursor)
     def encrypt(self, password):
         return hashlib.sha224(password).hexdigest()
