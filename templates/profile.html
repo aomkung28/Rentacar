@@ -24,9 +24,9 @@
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                   <li>
-                    <p>Pages</p>
+                    <p>Manage</p>
                   </li>
-                  <li><a href="#" class="active">Blank template</a>
+                  <li><a href="#" class="active">profile</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
@@ -43,7 +43,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>User profile form requirement</legend>
+<legend>{{profile['staff_fname']}} {{profile['staff_lname']}}</legend>
 
 <!-- Text input-->
 
@@ -54,11 +54,8 @@
   <label class="col-md-4 control-label" for="Username">Username</label>
   <div class="col-md-4">
  <div class="input-group">
-       <div class="input-group-addon">
-        <i class="fa fa-user">
-        </i>
-       </div>
-       <input id="Username" name="Username" type="text" placeholder="Username" class="form-control input-md">
+       
+       <input id="Username" name="Username" type="text" class="form-control input-md" disabled value="{{profile['username']}}">
       </div>
 
 
@@ -103,7 +100,7 @@
      <i class="fa fa-phone"></i>
 
        </div>
-    <input id="Phone number " name="Phone number " type="text" placeholder="Phone number " class="form-control input-md">
+    <input id="Phone number " name="Phone number " type="text" placeholder="Phone number " class="form-control input-md" value="{{profile['staff_phone']}}"/>
 
       </div>
 
@@ -120,7 +117,7 @@
      <i class="fa fa-envelope-o"></i>
 
        </div>
-    <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
+    <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md" value="{{profile['email']}}" />
 
       </div>
 
@@ -187,7 +184,7 @@
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTAINER -->
-    
+
     <!-- START OVERLAY -->
     <div class="overlay hide" data-pages="search">
       <!-- BEGIN Overlay Content !-->

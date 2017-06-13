@@ -9,6 +9,8 @@ class authentification:
                                      password='root',
                                      db='db_master',
                                      cursorclass=pymysql.cursors.DictCursor)
+
+
     def encrypt(self, password):
         return hashlib.sha224(password).hexdigest()
 
@@ -16,31 +18,73 @@ class authentification:
         try:
             with self.connection.cursor() as cursor:
                 # Read a single record
-                sql = "SELECT * FROM `login` WHERE `email`=%s AND  `password`=%s "
+                sql = "SELECT * FROM `login` WHERE `email`=%s AND  `password`=%s AND `isAdmin`=%s"
 
-                cursor.execute(sql, (email, password))
+                cursor.execute(sql, (email, password, 1))
                 result = cursor.fetchone()
                 if result == None:return False
-                else:return result
-        except OperationalError:
+                else:
+                    self.profileid = result['id']
+                    return result
+        except OperationalError, e:
             # Open a file
-            fd = os.open("foo.txt", os.O_RDWR | os.O_CREAT)
+            print e.message
 
-            # Write one string
-            os.write(fd, "This is test")
+    def close(self):
+        self.connection.close()
 
-            # Close opened file
-            os.close(fd)
+    def load_brands(self):
+        try:
+            with self.connection.cursor() as cursor:
+                # Read a single record
+                sql = "SELECT * FROM `car_brand`"
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                if result == None:return False
+                else:return result
+        except OperationalError, e:
+            # Open a file
+            print e.message
         finally:
             self.connection.close()
-            return False
-    def close(self):
-        pass
+
+    def add_car(self, args):
+        try:
+            with self.connection.cursor() as cursor:
+                # Read a single record
+                sql = "SELECT * FROM `car_brand`"
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                if result == None:
+                    return False
+                else:
+                    return result
+        except OperationalError, e:
+            # Open a file
+            print e.message
+        finally:
+            self.connection.close()
+    def get_profile(self , id):
+        try:
+            with self.connection.cursor() as cursor:
+                # Read a single record
+                sql = 'SELECT * FROM staff, login WHERE `staff`.staff_id = %s'
+                cursor.execute(sql , (id))
+                result = cursor.fetchone()
+                return result
+        except OperationalError, e:
+            # Open a file
+            print e.message
+        finally:
+            self.connection.close()
 
 
 if __name__ == '__main__':
     B = authentification()
     advo = B.do_login_probe("admin@gmail.com",'admin')
-    print advo.get('username')
-    print advo.get('lastlogin')
-    print advo.get('id')
+    print advo
+
+    Brands = B.load_brands()
+    print Brands
+
+    #B.close()

@@ -401,41 +401,43 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <div class="panel-title">
-                      Add
+                      Add a New Car
                     </div>
                   </div>
                   <div class="panel-body">
                     <h5>
 
             </h5>
-                    <form class="" name="form-v2" action="?actionid=sdfiudifosfuisdofuosfuf&delete" role="form">
+                    <form class="" name="form-v2" action="/car/add" role="form" method="post">
                     <div class="form-group form-group-default required ">
                         <label>License</label>
-                        <input type="name" class="form-control" required>
+                        <input name="add_license" type="text" class="form-control" required>
                       </div>
                       <div class="form-group form-group-default required ">
-                        <label>Name</label>
-                        <input type="name" class="form-control" required>
+                          <label>License</label>
+                          <input name="add_license" type="text" class="form-control" required>
                       </div>
                       <div class="row">
                         <div class="col-sm-6">
                        <div class="form-group form-group-default form-group-default-select2 required">
                         <label class="">Model</label>
-                        <select class="full-width" data-placeholder="Select Model" data-init-plugin="select2">
-                          <optgroup label="Model">
-                            <option value="Nissan">Nissan</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                          </optgroup>
-                        </select>
+                          <select class="full-width"  name="add_brand" data-placeholder="Select Model" data-init-plugin="select2">
+                         <optgroup label="Model">
+                         {% for e in brands %}
+                          <option value="{{ e['car_brand_id'] }}">{{ e['car_brand_name']}}</option>
+                         {%end%}
+                           </optgroup>
+                         </select>
+
+
                       </div>
                       </div>
                       <div class="col-sm-6">
                        <div class="form-group form-group-default form-group-default-select2 required">
                         <label class="">Type</label>
-                        <select class="full-width" data-placeholder="Select Type" data-init-plugin="select2">
+                        <select name="add_type" class="full-width" data-placeholder="Select Type" data-init-plugin="select2">
                           <optgroup label="Type">
-                            <option value="Sadan">Sadan</option>
+                            <option value="Sadan">Sedan</option>
                             <option value="Minivan">Minivan</option>
                             <option value="SUV">SUV</option>
                             <option value="Hatchback">Hatchback</option>
@@ -455,29 +457,36 @@
 
                      <div class="form-group form-group-default required ">
                         <label>Door</label>
-                        <input type="number" class="form-control" required>
+                        <select name="add_door" type="number" class="form-control" required>
+                          <option value="4"> 4Door</option>
+                          <option value="5"> 5Door</option>
+                        </select>
                       </div>
                      <div class="form-group form-group-default required ">
                         <label>Engine</label>
-                        <input type="number" class="form-control" required>
+                        <input name="add_engine"  type="number" class="form-control" required>
                       </div>
                        <div class="row">
                         <div class="col-sm-6">
                     <div class="form-group form-group-default required ">
                         <label>Fuel</label>
-                        <input type="number" class="form-control" required>
+                        <input name="add_fuel"  type="number" class="form-control" required>
                       </div>
                       </div>
                         <div class="col-sm-6">
                        <div class="form-group form-group-default required ">
                         <label>Fuel Type</label>
-                        <input type="number" class="form-control" required>
+                        <select name="add_fuel_type" type="number" class="form-control" required>
+                          <option value="95"> 95</option>
+                          <option value="91"> 91</option>
+                          <option value="E20"> E20</option>
+                        </select>
                       </div>
                       </div>
                       </div>
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Places</label>
-                        <select class=" full-width" data-init-plugin="select2" multiple>
+                        <select name="add_places" class=" full-width" data-init-plugin="select2" multiple>
                           <option value="United States">United States</option>
                           <option value="India">India</option>
                           <option value="Africa">Africa</option>
@@ -485,24 +494,32 @@
                       </div>
                        <div class="form-group form-group-default required ">
                         <label>Rental Price</label>
-                        <input type="number" class="form-control" required>
+                        <input name="add_rental_price" type="number" class="form-control" required>
                       </div>
+
                     <div class="radio radio-success">
-                      <input type="radio" value="yes" name="optionyes" id="yes">
-                      <label for="yes">Active</label>
-                      <input type="radio" checked="checked" value="no" name="optionyes" id="no">
-                      <label for="no">Disabled</label>
+                      <input type="radio" value="yes" name="add_status" id="active">
+                      <label for="active">Active</label>
+                      <input type="radio" checked="checked" value="no" name="add_status" id="disabled">
+                      <label for="disabled">Disabled</label>
                     </div>
 
+                    <div class="modal-footer">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    {% module xsrf_form_html() %}
+                    </form>
+                    <form action="/file-upload" class="dropzone no-margin">
+                      <div class="fallback">
+                        <input name="file" type="file" multiple/>
+                      </div>
                     </form>
                   </div>
                 </div>
                 <!-- END PANEL -->
         </div>
-        <div class="modal-footer">
-        <button class="btn btn-success" type="submit">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+
       </div>
 
     </div>

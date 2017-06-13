@@ -21,6 +21,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/booking", BookingHandler),
             (r"/car", ManageHandler),
+            (r"/car/add", CarAddHandler),
             (r"/profile", ProfileHandler),
             (r"/report", ReportHandler),
             (r"/register", RegisterHandler),
@@ -35,15 +36,19 @@ class Application(tornado.web.Application):
             xsrf_cookies=True,
             debug=True,
             autoescape=None,
+            login_url = "/login"
         )
         tornado.web.Application.__init__(self, handlers, **settings)
 
 
 class BaseHandler(tornado.web.RequestHandler):
-    pass
+    def get_current_user(self):
+        return self.get_cookie("profileid")
+
+
 
 class MainHandler(BaseHandler):
-    @tornado.web.asynchronous
+    @tornado.web.authenticated
     def get(self):
         self.render('dashboard.html')
 
@@ -55,12 +60,36 @@ class BookingHandler(BaseHandler):
 class ManageHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render('car.html')
+        self.auth = authentification()
+        brands = self.auth.load_brands()
+        self.render('car.html', brands=brands)
+
+class CarAddHandler(BaseHandler):
+    def get(self):
+        pass
+
+    def post(self):
+        args = {
+            'license': self.get_argument('add_license', False, strip=True),
+            'model': self.get_argument('add_brand', False, strip=True),
+            'type': self.get_argument('add_type', False, strip=True),
+            'engine': self.get_argument('add_engine', False, strip=True),
+            'fuel': self.get_argument('add_fuel', False, strip=True),
+            'fuel_type': self.get_argument('add_fuel_type', False, strip=True),
+            'places': self.get_argument('add_places', False, strip=True),
+            'rental_price': self.get_argument('add_rental_price', False, strip=True),
+            'status': self.get_argument('add_status', False, strip=True)
+        }
+        self.write(args)
+
 
 class ProfileHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render('profile.html')
+        self.auth = authentification()
+        profile = self.auth.get_profile(self.get_current_user())
+        print profile
+        self.render('profile.html', profile = profile)
 
 class ReportHandler(BaseHandler):
     @tornado.web.asynchronous
@@ -81,17 +110,27 @@ class LoginHandler(BaseHandler):
         self.auth = authentification()
         username = str(self.get_argument('username', strip=True))
         password = str(self.get_argument('password', strip=True))
-        check_login = self.auth.do_login_probe(username, password)
-        if check_login == False or check_login== None:
+        if self.check_permission(username, password):
+            self.redirect('/')
+        else:
             self.redirect('/login?error=1')
+
+    def check_permission(self,username, password):
+        check_login = self.auth.do_login_probe(username, password)
+        if check_login == False or check_login == None:
+            return False
         else:
             print type(check_login)
-            if len(check_login) >=2:
-                self.redirect('/')
+            self.set_current_user(check_login['id'])
+            return True
 
 
 
-
+    def set_current_user(self, user):
+        if user:
+            self.set_cookie("profileid", str(user))
+        else:
+            self.clear_cookie("profileid")
 
 
         #if username == 'admin' and password=='admin':self.redirect('/'):
