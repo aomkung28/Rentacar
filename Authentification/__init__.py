@@ -45,8 +45,6 @@ class authentification:
         except OperationalError, e:
             # Open a file
             print e.message
-        finally:
-            self.connection.close()
 
     def add_car(self, args):
         try:

@@ -1,4 +1,5 @@
 import hashlib
 if __name__ == "__main__":
-    B = hashlib.sha224("passwpord").hexdigest()
-    print B
+    B = [10 , 20, 40, 60]
+    C = [x+1 for x in B]
+    print C

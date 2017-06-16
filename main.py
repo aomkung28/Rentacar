@@ -26,6 +26,7 @@ class Application(tornado.web.Application):
             (r"/report", ReportHandler),
             (r"/register", RegisterHandler),
             (r"/login", LoginHandler),
+            (r"/invoice", InvoiceHandler),
             (r"/", MainHandler)
 
         ]
@@ -42,27 +43,36 @@ class Application(tornado.web.Application):
 
 
 class BaseHandler(tornado.web.RequestHandler):
+    def prepare(self):
+        self.auth = authentification()
     def get_current_user(self):
         return self.get_cookie("profileid")
+
+class InvoiceHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('invoice.html')
 
 
 
 class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        self.render('dashboard.html')
+        profile = self.auth.get_profile(self.get_current_user())
+        self.render('dashboard.html', profile=profile)
 
 class BookingHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render('booking.html')
+        profile = self.auth.get_profile(self.get_current_user())
+        self.render('booking.html', profile=profile)
 
 class ManageHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
         self.auth = authentification()
         brands = self.auth.load_brands()
-        self.render('car.html', brands=brands)
+        profile = self.auth.get_profile(self.get_current_user())
+        self.render('car.html', brands=brands, profile=profile)
 
 class CarAddHandler(BaseHandler):
     def get(self):
@@ -86,15 +96,14 @@ class CarAddHandler(BaseHandler):
 class ProfileHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.auth = authentification()
         profile = self.auth.get_profile(self.get_current_user())
-        print profile
         self.render('profile.html', profile = profile)
 
 class ReportHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render('report.html')
+        profile = self.auth.get_profile(self.get_current_user())
+        self.render('report.html', profile=profile)
 
 class RegisterHandler(BaseHandler):
     @tornado.web.asynchronous
