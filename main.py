@@ -81,7 +81,8 @@ class CarAddHandler(BaseHandler):
     def post(self):
         args = {
             'license': self.get_argument('add_license', False, strip=True),
-            'model': self.get_argument('add_brand', False, strip=True),
+            'model': self.get_argument('add_model', False, strip=True),
+            'brand': self.get_argument('add_brand', False, strip=True),
             'type': self.get_argument('add_type', False, strip=True),
             'engine': self.get_argument('add_engine', False, strip=True),
             'fuel': self.get_argument('add_fuel', False, strip=True),
@@ -90,6 +91,7 @@ class CarAddHandler(BaseHandler):
             'rental_price': self.get_argument('add_rental_price', False, strip=True),
             'status': self.get_argument('add_status', False, strip=True)
         }
+
         self.write(args)
 
 
@@ -97,7 +99,7 @@ class ProfileHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
         profile = self.auth.get_profile(self.get_current_user())
-        self.render('profile.html', profile = profile)
+        self.render('profile.html', profile=profile)
 
 class ReportHandler(BaseHandler):
     @tornado.web.asynchronous
@@ -108,7 +110,7 @@ class ReportHandler(BaseHandler):
 class RegisterHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.render('register.html')
+        self.render('register.html' )
 
 class LoginHandler(BaseHandler):
     @tornado.web.asynchronous
@@ -126,7 +128,7 @@ class LoginHandler(BaseHandler):
 
     def check_permission(self,username, password):
         check_login = self.auth.do_login_probe(username, password)
-        if check_login == False or check_login == None:
+        if check_login==False or check_login==None:
             return False
         else:
             print type(check_login)

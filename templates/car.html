@@ -22,9 +22,9 @@
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                   <li>
-                    <p>Pages</p>
+                    <p>Manage</p>
                   </li>
-                  <li><a href="#" class="active">Blank template</a>
+                  <li><a href="#" class="active">Cars</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
@@ -410,8 +410,8 @@
             </h5>
                     <form class="" name="form-v2" action="/car/add" role="form" method="post">
                     <div class="form-group form-group-default required ">
-                        <label>License</label>
-                        <input name="add_license" type="text" class="form-control" required>
+                        <label>Model</label>
+                        <input name="add_model" type="text" class="form-control" required>
                       </div>
                       <div class="form-group form-group-default required ">
                           <label>License</label>
@@ -420,13 +420,13 @@
                       <div class="row">
                         <div class="col-sm-6">
                        <div class="form-group form-group-default form-group-default-select2 required">
-                        <label class="">Model</label>
-                          <select class="full-width"  name="add_brand" data-placeholder="Select Model" data-init-plugin="select2">
+                        <label class="">Brand</label>
+                         <select class="full-width"  name="add_brand" data-placeholder="Select Model" data-init-plugin="select2">
                          <optgroup label="Model">
-                         {% for e in brands %}
-                          <option value="{{ e['car_brand_id'] }}">{{ e['car_brand_name']}}</option>
-                         {%end%}
-                           </optgroup>
+                           {% for e in brands %}
+                            <option value="{{ e['car_brand_id'] }}">{{ e['car_brand_name']}}</option>
+                           {%end%}
+                         </optgroup>
                          </select>
 
 
