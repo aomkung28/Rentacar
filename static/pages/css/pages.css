@@ -2453,7 +2453,7 @@ hr.dotted {
 ------------------------------------
 */
 .bg-primary {
-  background-color: #6d5cae;
+  background-color: #008ED4;
 }
 .bg-primary-dark {
   background-color: #584b8d;
@@ -2942,8 +2942,8 @@ Alternate buttons
 .btn-primary,
 .btn-primary:focus {
   color: #ffffff;
-  background-color: #6d5cae;
-  border-color: #6d5cae;
+  background-color: #008ED4;
+  border-color: #008ED4;
 }
 .btn-primary.active,
 .btn-primary:active,
@@ -2951,20 +2951,20 @@ Alternate buttons
 .btn-primary:active:focus,
 .btn-primary:active:hover,
 .open .dropdown-toggle.btn-primary {
-  background-color: #584b8d;
-  border-color: #584b8d;
+  background-color: #3B4B5B;
+  border-color: #3B4B5B;
   color: #ffffff;
 }
 .btn-primary.hover,
 .btn-primary:hover,
 .open .dropdown-toggle.btn-primary {
-  background-color: #8a7dbe;
-  border-color: #8a7dbe;
+  background-color: #3B4B5B;
+  border-color: #3B4B5B;
   color: #ffffff;
 }
 .btn-primary.active:hover {
-  background: #5e4f96;
-  border-color: #5e4f96;
+  background: #3B4B5B;
+  border-color: #3B4B5B;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -2981,12 +2981,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #6d5cae;
-  border-color: #6d5cae;
+  background-color: #3B4B5B;
+  border-color: #3B4B5B;
 }
 .btn-primary .badge {
-  color: #6d5cae;
-  background-color: #ffffff;
+  color: ##008ED4;
+  background-color: ##008ED4;
 }
 .btn-success,
 .btn-success:focus {
@@ -9644,7 +9644,7 @@ Responsive Util
 */
 .login-wrapper {
   height: 100%;
-  background-color: #6d5cae;
+  background-color: #fff;
 }
 .login-wrapper > * {
   height: 100%;
@@ -9656,7 +9656,6 @@ Responsive Util
 }
 .login-wrapper .bg-pic > img {
   height: 100%;
-  opacity: 0.6;
 }
 .login-wrapper .login-container {
   width: 496px;

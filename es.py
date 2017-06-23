@@ -1,45 +1,68 @@
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import MultiSearch, Search
-class dbe:
+import requests
+import json
+class db:
     def __init__(self):
         self.es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-    def do_login(self):
-        es.search(index="authentication", body={"query": {"bool": {
-            "must": [{"term": {"password.keyword": "thailand"}}, {"term": {"email.keyword": "admin@admin.com"}}],
-            "must_not": [], "should": []}}, "from": 0, "size": 10, "sort": [], "aggs": {}})
 
-    def dsl(self):
-        s = Search(using=self.es, index="authentication") \
-            .filter("term", password="thailand") \
-            .query("match", email="admin@admin.com")
+    def _OLDdo_login(self, username, password):
+        # type: (str, str) -> [] or str
+        ms = MultiSearch(using=self.es, index='authentication')
+        ms = ms.add(Search().filter('term', password=password))
+        ms = ms.add(Search().filter('term', email=username))
+        records = ms.execute()
+        _isin = False
+        for response in records:
+            if response:
+                _isin = True
 
-        #s.aggs.bucket('per_tag', 'terms', field='tags') \
-        #    .metric('max_lines', 'max', field='lines')
-        response = s.execute()
-        for hit in response:
-            print hit
+                return response[0]
+            else:
+                return False
 
-    def dsl2(self):
-        s = Search(using=self.es, index="authentication")
-        s.from_dict({"query": {"bool": {
-            "must": [{"term": {"password.keyword": "thailand"}}, {"term": {"email.keyword": "admin@admin.com"}}],
-            "must_not": [], "should": []}}, "from": 0, "size": 10, "sort": [], "aggs": {}})
-        response = s.execute()
-        for hits in response:
-            print hits
+    def profile(self, id):
+
+        pass
+    def login(self, username, password):
+        res = self.es.search(index="account", body=
+        {"query": {"bool": {
+            "must": [{"match": {"account.email": username}},
+                     {"match": {"account.password": password}},
+                     {"match": {"account.isAdmin": True}},
+                     {"match": {"account.isActive": True}}]}},
+            "size": 1})
+
+        if res['hits']['total'] > 0:
+            return res['hits']['hits'][0]
+        else:
+            return False
+
+    def do_login(self, username, password):
+        res = self.es.post(index="account", body=
+        {"query": {"bool": {
+            "must": [{"match": {"account.email": username}},
+                     {"match": {"account.password": password}},
+                     {"match": {"account.isAdmin": True}},
+                     {"match": {"account.isActive": True}}]}},
+            "size": 1})
+        print res
+        if res['hits']['total'] > 0:
+            return res['hits']['hits'][0]
+        else:
+            return False
+
+    def get_report_datatable(self):
+        datatable = self.es.search(index="deals", body={"query": {"bool": {"must": [{"match_all": {}}]}}}, size=100)
+        #print json.dumps(datatable)
+        if datatable['hits']['total'] > 0:
+            return datatable['hits']['hits']
+        else:
+            return False
+
+
 if __name__ == '__main__':
-
-
-    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-
-    ms = MultiSearch(using=es, index='authentication')
-
-    ms = ms.add(Search().filter('term', password='thailand'))
-    ms = ms.add(Search().filter('term', email='admin@admin.com'))
-
-    responses = ms.execute()
-
-    for response in responses:
-        for hit in response:
-            print(hit)
-
+    AFD = db()
+    for elem in AFD.do_report_datatable():
+        print 'customer', elem['_source']['customer']
+        print 'deal', elem['_source']['deal']

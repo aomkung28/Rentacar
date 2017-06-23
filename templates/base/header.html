@@ -35,7 +35,8 @@
         <div class=" pull-left sm-table hidden-xs hidden-sm">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="{{ static_url('assets/img/logo.png') }}" alt="logo2222" data-src="{{ static_url('assets/img/logo.png')}}" data-src-retina="{{ static_url('assets/img/logo_2x.png')}}" width="100" >
+              {{profile['_source']['staff'][0]['fname']}} {{profile['_source']['staff'][0]['lname']}}
+              <img style="display: none;" src="{{ static_url('assets/img/logo.png') }}" alt="logo2222" data-src="{{ static_url('assets/img/logo.png')}}" data-src-retina="{{ static_url('assets/img/logo_2x.png')}}" width="100" >
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@
                 <li><a href="#"><i class="pg-signals"></i> Help</a>
                 </li>
                 <li class="bg-master-lighter">
-                  <a href="#" class="clearfix">
+                  <a href="/logout" class="clearfix">
                     <span class="pull-left">Logout</span>
                   </a>
                 </li>

@@ -1,0 +1,36 @@
+{
+  "mappings": {
+    "deals": {
+      "properties": {
+        "deal": {
+          "portalId" : {
+              "type": "long"
+            },
+          "dealId" : {
+              "type": "long"
+            },
+          "isDeleted" :  {
+              "type": "boolean"
+            },
+          "dealStage" : {
+              "type": "text"
+            },
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "date": {
+              "type": "date"
+            },
+            "source": {
+              "type": "text"
+            },
+            "amount": {
+              "type": "double"
+            }
+          }
+        }
+      }
+    }
+  }
+}

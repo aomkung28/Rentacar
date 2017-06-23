@@ -7,14 +7,14 @@ import tornado.web
 import os.path
 import tornado.auth
 import tornado.escape
-
+import json
 
 from Authentification import Profile, authentification
 
 from tornado.options import define, options
 
 define("port", default=9999, help="run on the given port", type=int)
-
+from es import db
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -26,6 +26,7 @@ class Application(tornado.web.Application):
             (r"/report", ReportHandler),
             (r"/register", RegisterHandler),
             (r"/login", LoginHandler),
+            (r"/logout", LogoutHandler),
             (r"/invoice", InvoiceHandler),
             (r"/", MainHandler)
 
@@ -44,9 +45,12 @@ class Application(tornado.web.Application):
 
 class BaseHandler(tornado.web.RequestHandler):
     def prepare(self):
-        self.auth = authentification()
+        self.db = db()
+
     def get_current_user(self):
         return self.get_cookie("profileid")
+    def get_profile(self):
+        return tornado.escape.json_decode(self.get_secure_cookie('udata'))
 
 class InvoiceHandler(tornado.web.RequestHandler):
     def get(self):
@@ -57,19 +61,20 @@ class InvoiceHandler(tornado.web.RequestHandler):
 class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        profile = self.auth.get_profile(self.get_current_user())
+        profile = self.get_profile()
+        print json.dumps(profile)
         self.render('dashboard.html', profile=profile)
 
 class BookingHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        profile = self.auth.get_profile(self.get_current_user())
+        profile = self.get_profile()
         self.render('booking.html', profile=profile)
 
 class ManageHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.auth = authentification()
+        self.db = authentification()
         brands = self.auth.load_brands()
         profile = self.auth.get_profile(self.get_current_user())
         self.render('car.html', brands=brands, profile=profile)
@@ -98,14 +103,15 @@ class CarAddHandler(BaseHandler):
 class ProfileHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        profile = self.auth.get_profile(self.get_current_user())
+        profile = self.get_profile()
         self.render('profile.html', profile=profile)
 
 class ReportHandler(BaseHandler):
-    @tornado.web.asynchronous
+    @tornado.web.authenticated
     def get(self):
-        profile = self.auth.get_profile(self.get_current_user())
-        self.render('report.html', profile=profile)
+        profile = self.get_profile()
+        datatable = self.db.get_report_datatable()
+        self.render('report.html', profile=profile,datatable=datatable)
 
 class RegisterHandler(BaseHandler):
     @tornado.web.asynchronous
@@ -118,40 +124,40 @@ class LoginHandler(BaseHandler):
         self.render('login.html', error = self.get_argument('error',0, True))
 
     def post(self):
-        self.auth = authentification()
         username = str(self.get_argument('username', strip=True))
         password = str(self.get_argument('password', strip=True))
-        if self.check_permission(username, password):
+        profile = self.db.do_login(username,password)
+
+        if profile:
+            self.set_current_user(profile['_id'], profile)
             self.redirect('/')
         else:
             self.redirect('/login?error=1')
 
-    def check_permission(self,username, password):
-        check_login = self.auth.do_login_probe(username, password)
-        if check_login==False or check_login==None:
-            return False
-        else:
-            print type(check_login)
-            self.set_current_user(check_login['id'])
-            return True
 
 
-
-    def set_current_user(self, user):
+    def set_current_user(self, user, profile):
         if user:
             self.set_cookie("profileid", str(user))
+            self.set_secure_cookie('udata', tornado.escape.json_encode(profile))
         else:
             self.clear_cookie("profileid")
-
 
         #if username == 'admin' and password=='admin':self.redirect('/'):
          #   pass
 
+class LogoutHandler(BaseHandler):
+    @tornado.web.asynchronous
+    def get(self):
+        self.clear_all_cookies()
+        self.clear_cookie('profileid')
+        self.clear_cookie('udata')
+        self.redirect('/')
 
 
 
 
-        #TODO: secure cookie
+                    #TODO: secure cookie
         #self.set_secure_cookie('do_login','this is my password')
 
 

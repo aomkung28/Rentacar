@@ -26,7 +26,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="{{ static_url('assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ static_url('assets/img/logo_white.png')}}" data-src-retina="{{ static_url('assets/img/logo_white_2x.png')}}" width="90">
+        <img src="{{ static_url('assets/img/logo_white.png') }}" alt="logo" class="brand" data-src="{{ static_url('assets/img/logo_white.png')}}" data-src-retina="{{ static_url('assets/img/logo_white_2x.png')}}" width="90" style="visibility: hidden;">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -47,13 +47,13 @@
           </li>
           <li class="{%if request.path == '/car'%}open active{%end%}">
             <a href="/car" class="detailed">
-              <span class="title">Car</span>
+              <span class="title">Manage</span>
             </a>
             <span class="{%if request.path == '/car'%}bg-success{%end%} icon-thumbnail"><i class="fa fa-car"></i></span>
           </li>
           <li class="{%if request.path == '/booking'%}open active{%end%}">
             <a href="/booking" class="detailed">
-              <span class="title">Booking</span>
+              <span class="title">Payment</span>
             </a>
             <span class="{%if request.path == '/booking'%}bg-success{%end%} icon-thumbnail"><i class="pg pg-calender"></i></span>
           </li>
