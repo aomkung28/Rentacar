@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Reports | ContentSME</title>
+  {% include 'base/head.html' %}
+  </head>
+  <body class="fixed-header ">
+    {% include 'base/toolbox.html' %}
+    <!-- START PAGE-CONTAINER -->
+    <div class="page-container ">
+      <!-- START HEADER -->
+      {% include 'base/header.html' %}
+      <!-- END HEADER -->
+      <!-- START PAGE CONTENT WRAPPER -->
+      <div class="page-content-wrapper ">
+        <!-- START PAGE CONTENT -->
+        <div class="content ">
+          <!-- START JUMBOTRON -->
+          <div class="jumbotron" data-pages="parallax">
+            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+              <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <p>View</p>
+                  </li>
+                  <li><a href="#" class="active">Customers</a>
+                  </li>
+                </ul>
+                <!-- END BREADCRUMB -->
+              </div>
+            </div>
+          </div>
+          <!-- END JUMBOTRON -->
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg bg-white">
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">You're viewing all reports
+                </div>
+                <div class="export-options-container pull-right"></div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped" id="tableWithExportOptions">
+                  <thead>
+                    <tr>
+                      <th>Deal name</th>
+                      <th class="text-center">Company</th>
+                      <th class="text-center">Customer</th>
+                      <th class="text-center">Close date</th>
+                      <th class="text-center">Amount</th>
+                      <th class="text-center">Deal stage</th>
+                      <th class="text-center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in datatable %}
+                    <tr class="odd gradeX">
+                      <td>{{item['_source']['deal']['name']}}</td>
+                      <td>{{item['_source']['customer']['firstname']}} {{item['_source']['customer']['lastname']}}</td>
+                      <td class="center text-capitalize">{{item['_source']['deal']['payment']}}</td>
+                      <td class="center">{{item['_source']['deal']['closedate']}}</td>
+                      <td class="center"><i class="fa fa-dollar"></i> {{item['_source']['deal']['amount']}}</td>
+
+                      {% if item['_source']['deal']['stage']== 'closedlost' %}
+                        <td class="center"><span class="label label-important">CLOSED LOST</span></td>
+                      {%elif item['_source']['deal']['stage']== 'closedwon' %}
+                        <td class="center"><span class="label label-success">CLOSED WON</span></td>
+                      {%elif item['_source']['deal']['stage']== 'appointmentscheduled' %}
+                        <td class="center">Appointment Scheduled <span class="fa fa-slack"></span></td>
+                      {%elif item['_source']['deal']['stage']== 'qualifiedtobuy' %}
+                        <td class="center">Qualified to Buy <span class="fa fa-bar-chart"></span> </td>
+                      {%else%}
+                        <td class="center"><a href="#" class="fa fa-minus"></a></td>
+                      {% end %}
+                      <td class="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info"><i class="fa fa-save"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary"><i class="fa fa-pencil"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i>
+                            </button>
+                          </div>
+                      </td>
+                    </tr>
+                    {% end %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+          <!-- END CONTAINER FLUID -->
+        </div>
+        <!-- END PAGE CONTENT -->
+        <!-- Modal -->
+  <div class="modal fade" id="add" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+               <!-- START PANEL -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="panel-title">
+                      Add
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <h5>
+
+            </h5>
+                    <form class="" role="form">
+
+                      <div class="form-group form-group-default required ">
+                        <label>Report</label>
+                        <input type="name" class="form-control" required>
+                      </div>
+
+                     <div class="form-group form-group-default required ">
+                        <label>Date</label>
+                        <input type="Date" class="form-control" required>
+                      </div>
+                     <div class="form-group form-group-default required ">
+                        <label>Uploadfile</label>
+                        <input type="file" class="form-control" required>
+                      </div>
+
+
+
+                    </form>
+                  </div>
+                </div>
+                <!-- END PANEL -->
+        </div>
+        <div class="modal-footer">
+        <button class="btn btn-success" type="submit">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+   <!-- Modal -->
+  <div class="modal fade" id="edit" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+               <!-- START PANEL -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="panel-title">
+                      Edit
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <h5>
+
+            </h5>
+                    <form class="" role="form">
+
+                      <div class="form-group form-group-default required ">
+                        <label>Report</label>
+                        <input type="name" class="form-control" required>
+                      </div>
+
+                     <div class="form-group form-group-default required ">
+                        <label>Date</label>
+                        <input type="Date" class="form-control" required>
+                      </div>
+                     <div class="form-group form-group-default required ">
+                        <label>Uploadfile</label>
+                        <input type="file" class="form-control" required>
+                      </div>
+
+
+
+                    </form>
+                  </div>
+                </div>
+                <!-- END PANEL -->
+        </div>
+        <div class="modal-footer">
+        <button class="btn btn-success" type="submit">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+        <!-- START COPYRIGHT -->
+        <!-- START CONTAINER FLUID -->
+        <!-- START CONTAINER FLUID -->
+        <div class="container-fluid container-fixed-lg footer">
+          <div class="copyright sm-text-center">
+            <p class="small no-margin pull-left sm-pull-reset">
+              <span class="hint-text">Copyright &copy; 2017 </span>
+              <span class="font-montserrat">ContentSME</span>.
+              <span class="hint-text">All rights reserved. </span>
+              <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+            </p>
+            <p class="small no-margin pull-right sm-pull-reset">
+              <a href="#">Hand-crafted</a> <span class="hint-text">&amp; Made with Love ®</span>
+            </p>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- END COPYRIGHT -->
+      </div>
+      <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+
+    <!-- END OVERLAY -->
+      {% include 'base/js.html' %}
+    <!-- END PAGE LEVEL JS -->
+    <script src="{{ static_url('assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+    <script src="{{ static_url('assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}" type="text/javascript"></script>
+    <script src="{{ static_url('assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript') }}"></script>
+    <script src="{{ static_url('assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}" type="text/javascript"></script>
+    <script src="{{ static_url('assets/plugins/datatables-responsive/js/datatables.responsive.js') }}" type="text/javascript" ></script>
+    <script src="{{ static_url('assets/plugins/datatables-responsive/js/lodash.min.js') }}" type="text/javascript"></script>
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="{{ static_url('assets/js/datatables.js') }}" type="text/javascript"></script>
+    <script src="{{ static_url('assets/js/scripts.js') }}" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS -->
+  </body>
+</html>

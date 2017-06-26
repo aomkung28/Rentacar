@@ -28,6 +28,8 @@ class Application(tornado.web.Application):
             (r"/login", LoginHandler),
             (r"/logout", LogoutHandler),
             (r"/invoice", InvoiceHandler),
+            (r"/customer", CustomerHandler),
+
             (r"/", MainHandler)
 
         ]
@@ -52,9 +54,11 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_profile(self):
         return tornado.escape.json_decode(self.get_secure_cookie('udata'))
 
-class InvoiceHandler(tornado.web.RequestHandler):
+class InvoiceHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
-        self.render('invoice.html')
+        profile = self.get_profile()
+        self.render('invoice.html', profile=profile)
 
 
 
@@ -107,6 +111,13 @@ class ProfileHandler(BaseHandler):
         self.render('profile.html', profile=profile)
 
 class ReportHandler(BaseHandler):
+    @tornado.web.authenticated
+    def get(self):
+        profile = self.get_profile()
+        datatable = self.db.get_report_datatable()
+        self.render('report.html', profile=profile,datatable=datatable)
+
+class CustomerHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         profile = self.get_profile()

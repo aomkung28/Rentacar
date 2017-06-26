@@ -20,7 +20,7 @@ class api_hub:
         for e in deals['deals']:
             try:
                 dd = e['properties']['closedate']['value']
-                date = datetime.datetime.fromtimestamp(long(dd)/1000).strftime('%Y/%m/%d %H:%M:%S')
+                date = datetime.datetime.fromtimestamp(long(dd)/1000).strftime('%Y-%m-%d %H:%M:%S')
                 print date
             except KeyError:
                 print ''
@@ -92,10 +92,10 @@ class api_hub:
 
                 try:
                     dd = deal['properties']['closedate']['value']
-                    date = datetime.datetime.fromtimestamp(long(dd) / 1000).strftime('%Y/%m/%d %H:%M:%S')
+                    date = datetime.datetime.fromtimestamp(long(dd) / 1000).strftime('%Y-%m-%d %H:%M:%S')
                     data['closedate'] = date
                 except KeyError:
-                    data['closedate'] = '2001/01/01 12:10:30'
+                    data['closedate'] = '2001-01-01 12:10:30'
 
                 try:
                     vid = deal['associations']['associatedVids'][0]
