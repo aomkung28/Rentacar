@@ -61,13 +61,20 @@ class db:
             return False
 
     def get_customers_datatable(self):
-        datatable = self.es.search(index="deals", body={"query": {"bool": {"must": [{"match_all": {}}]}}}, size=100)
+        datatable = self.es.search(index="deals", body={"query":{"bool":{"must":[{"term":{"deal.isRecurring":"true"}}],"must_not":[],"should":[]}}}, size=100)
         #print json.dumps(datatable)
         if datatable['hits']['total'] > 0:
             return datatable['hits']['hits']
         else:
             return False
 
+    def get_all_recurring_datatable(self):
+        datatable = self.es.search(index="deals", body={"query": {"bool": {"must": [{"match_all": {}}]}}}, size=100)
+        #print json.dumps(datatable)
+        if datatable['hits']['total'] > 0:
+            return datatable['hits']['hits']
+        else:
+            return False
 if __name__ == '__main__':
     AFD = db()
     for elem in AFD.do_report_datatable():
